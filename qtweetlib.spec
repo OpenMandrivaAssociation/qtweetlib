@@ -18,12 +18,12 @@ BuildRequires:	qjson-devel
 %description
 C++ Qt based Twitter library.
 
-%package -n	%{qtweetlib}
+%package -n	%{libqtweetlib}
 Group:		System/Libraries
 Summary:	C++ Qt based Twitter library
 
 
-%description	-n	%{qtweetlib}
+%description	-n	%{libqtweetlib}
 C++ Qt based Twitter library.
 
 %package -n	%{develqtweetlib}
@@ -47,7 +47,7 @@ C++ Qt based Twitter library (devel package).
 %install
 %makeinstall_std -C build
 
-%files -n %{qtweetlib}
+%files -n %{libqtweetlib}
 %{_libdir}/libQTweetLib.so.*
 
 %files -n %{develqtweetlib}
