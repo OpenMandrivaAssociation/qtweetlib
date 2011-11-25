@@ -30,7 +30,7 @@ C++ Qt based Twitter library.
 Group:		Development/C
 Summary:	C++ Qt based Twitter library
 Provides:	%{name}-devel = %{version}-%{release}
-Requires:	%{qtweetlib} = %{version}-%{release}
+Requires:	%{libqtweetlib} = %{version}-%{release}
 
 
 %description -n %{develqtweetlib} 
