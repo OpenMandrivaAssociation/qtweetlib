@@ -6,7 +6,7 @@
 Name:		qtweetlib
 License:	GPLv2
 Version:	0.3.0
-Release:	1
+Release:	2
 Source0:	QTweetLib-%{version}.tar.bz2
 Url:		https://github.com/dschmidt/QTweetLib
 Summary:	C++ Qt based Twitter library
