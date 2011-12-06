@@ -1,7 +1,6 @@
-%define	qtweetlib_major 0
-%define	libqtweetlib %mklibname qtweetlib %qtweetlib_major
+%define	major 0
+%define	libqtweetlib %mklibname qtweetlib %{major}
 %define develqtweetlib %mklibname -d qtweetlib
-
 
 Name:		qtweetlib
 License:	GPLv2
@@ -14,24 +13,21 @@ Group:		System/Libraries
 BuildRequires:	cmake gcc-c++ qt4-devel
 BuildRequires:	qjson-devel
 
-
 %description
 C++ Qt based Twitter library.
 
-%package -n	%{libqtweetlib}
+%package -n %{libqtweetlib}
 Group:		System/Libraries
 Summary:	C++ Qt based Twitter library
 
-
-%description	-n	%{libqtweetlib}
+%description -n %{libqtweetlib}
 C++ Qt based Twitter library.
 
-%package -n	%{develqtweetlib}
+%package -n %{develqtweetlib}
 Group:		Development/C
 Summary:	C++ Qt based Twitter library
 Provides:	%{name}-devel = %{version}-%{release}
-Requires:	%{libqtweetlib} = %{version}-%{release}
-
+Requires:	%{libqtweetlib} = %{version}
 
 %description -n %{develqtweetlib} 
 C++ Qt based Twitter library (devel package).
@@ -40,7 +36,6 @@ C++ Qt based Twitter library (devel package).
 %setup -q -n QTweetLib-%{version}
 
 %build
-
 %cmake
 %make
 
@@ -48,7 +43,7 @@ C++ Qt based Twitter library (devel package).
 %makeinstall_std -C build
 
 %files -n %{libqtweetlib}
-%{_libdir}/libQTweetLib.so.*
+%{_libdir}/libQTweetLib.so.%{major}*
 
 %files -n %{develqtweetlib}
 %{_libdir}/libQTweetLib.so
