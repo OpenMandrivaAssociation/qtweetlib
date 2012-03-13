@@ -1,10 +1,10 @@
-%define	major 0
+%define	major 1
 %define	libqtweetlib %mklibname qtweetlib %{major}
 %define develqtweetlib %mklibname -d qtweetlib
 
 Name:		qtweetlib
 License:	GPLv2
-Version:	0.4.0
+Version:	0.5.0
 Release:	1
 Source0:	%{name}-%{version}.tar.gz
 Url:		https://github.com/dschmidt/QTweetLib
@@ -33,7 +33,7 @@ Requires:	%{libqtweetlib} = %{version}
 C++ Qt based Twitter library (devel package).
 
 %prep
-%setup -q -n minimoog-QTweetLib-aaf2530
+%setup -q -n minimoog-QTweetLib-2af0b78
 
 %build
 %cmake
