@@ -7,7 +7,7 @@ License:	GPLv2
 Version:	0.5.0
 Release:	1
 Source0:	%{name}-%{version}.tar.gz
-Soruce100:	qtweetlib.rpmlintrc
+Source100:	qtweetlib.rpmlintrc
 Url:		https://github.com/dschmidt/QTweetLib
 Summary:	C++ Qt based Twitter library
 Group:		System/Libraries
