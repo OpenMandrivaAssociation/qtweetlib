@@ -5,7 +5,7 @@
 Name:		qtweetlib
 License:	GPLv2
 Version:	0.5.0
-Release:	3
+Release:	4
 Source0:	%{name}-%{version}.tar.gz
 Source100:	qtweetlib.rpmlintrc
 Url:		https://github.com/dschmidt/QTweetLib
