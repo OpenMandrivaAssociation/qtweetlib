@@ -1,40 +1,42 @@
 %define	major 1
-%define	libqtweetlib %mklibname qtweetlib %{major}
-%define develqtweetlib %mklibname -d qtweetlib
+%define	libname %mklibname qtweetlib %{major}
+%define devname %mklibname -d qtweetlib
 
+Summary:	C++ Qt based Twitter library
 Name:		qtweetlib
 License:	GPLv2
 Version:	0.5.0
 Release:	5
-Source0:	%{name}-%{version}.tar.gz
-Source100:	qtweetlib.rpmlintrc
-Url:		https://github.com/dschmidt/QTweetLib
-Summary:	C++ Qt based Twitter library
 Group:		System/Libraries
-BuildRequires:	cmake gcc-c++ qt4-devel
-BuildRequires:	qjson-devel
+Url:		https://github.com/dschmidt/QTweetLib
+Source0:	%{name}-%{version}.tar.gz
+Source100:	%{name}.rpmlintrc
+BuildRequires:	cmake
+BuildRequires:	gcc-c++
+BuildRequires:	qt4-devel
+BuildRequires:	pkgconfig(QJson)
 
 %description
 C++ Qt based Twitter library.
 
-%package -n %{libqtweetlib}
+%package -n %{libname}
 Group:		System/Libraries
 Summary:	C++ Qt based Twitter library
 
-%description -n %{libqtweetlib}
+%description -n %{libname}
 C++ Qt based Twitter library.
 
-%package -n %{develqtweetlib}
+%package -n %{devname}
 Group:		Development/C
 Summary:	C++ Qt based Twitter library
 Provides:	%{name}-devel = %{version}-%{release}
-Requires:	%{libqtweetlib} = %{version}
+Requires:	%{libname} = %{version}-%{release}
 
-%description -n %{develqtweetlib} 
+%description -n %{devname} 
 C++ Qt based Twitter library (devel package).
 
 %prep
-%setup -q -n minimoog-QTweetLib-2af0b78
+%setup -qn minimoog-QTweetLib-2af0b78
 
 %build
 %cmake
@@ -43,34 +45,10 @@ C++ Qt based Twitter library (devel package).
 %install
 %makeinstall_std -C build
 
-%files -n %{libqtweetlib}
+%files -n %{libname}
 %{_libdir}/libQTweetLib.so.%{major}*
 
-%files -n %{develqtweetlib}
+%files -n %{devname}
 %{_libdir}/libQTweetLib.so
 %{_includedir}/QTweetLib/
-
-
-%changelog
-* Tue Mar 13 2012 Alexander Khrukin <akhrukin@mandriva.org> 0.5.0-1
-+ Revision: 784598
-- version update 0.5.0
-
-* Fri Feb 24 2012 Alexander Khrukin <akhrukin@mandriva.org> 0.4.0-1
-+ Revision: 780122
-- version update 0.4.0
-
-  + Zé <ze@mandriva.org>
-    - no need to set requires to release
-    - arrange spec
-
-* Fri Nov 25 2011 Alexander Khrukin <akhrukin@mandriva.org> 0.3.0-2
-+ Revision: 733370
-- release bump
-- packages fix in files -n section
-
-* Fri Nov 25 2011 Alexander Khrukin <akhrukin@mandriva.org> 0.3.0-1
-+ Revision: 733357
-- dependency token fix
-- imported package qtweetlib
 
